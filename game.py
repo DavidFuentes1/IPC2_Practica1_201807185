@@ -5,4 +5,9 @@ class game:
         self.name = name
 
 
+    def retItem(self):
+        return self.code
+
+    def retName(self):
+        return self.name    
 

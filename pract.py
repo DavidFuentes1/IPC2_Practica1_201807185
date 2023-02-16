@@ -1,5 +1,9 @@
 from xml.dom import minidom
 from game import*
+from ListaNoOrdenada import *
+
+
+listPlatform = []
 
 arch = minidom.parse("entrada.xml")
 juegosViejos = arch.getElementsByTagName("JuegosViejos")
@@ -13,7 +17,10 @@ for juegoViejo in juegosViejos:
             code = Plataforma.getElementsByTagName("codigo")[0]
             name = Plataforma.getElementsByTagName("nombre")[0]
             print(code.firstChild.data, name.firstChild.data) 
-            print()
+            consola = game(int(code.firstChild.data), name.firstChild.data )
+            listPlatform.append(consola)
+
+            print(consola.code)
 
 for juegoViejo in juegosViejos:  
     print("__________Lista de Juegos___________") 
@@ -24,5 +31,5 @@ for juegoViejo in juegosViejos:
         print(code.firstChild.data, name.firstChild.data) 
         print()  
 
-
-
+for plats in listPlatform:
+    print(plats.retItem())
